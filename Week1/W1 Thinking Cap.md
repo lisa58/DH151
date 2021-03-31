@@ -1,6 +1,7 @@
 # Week 1 Thinking cap assignment
 ## 1.
 <img src="pic/Screenshot.jpg" width="1000px">
+
 ## 2.
 https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6
 
