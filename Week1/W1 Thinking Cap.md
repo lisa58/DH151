@@ -1,5 +1,5 @@
 # Week 1 Thinking cap assignment
-## 1. Screenshot
+## Screenshot
 <img src="pic/Screenshot.jpg" width="1000px">
 
 ## Link
