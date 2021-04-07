@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oh, The Places You'll Go!</title>
+		<meta charset="utf-8" />
+
+		<!-- style sheets -->
+		<link rel="stylesheet" href="css/style.css" />
+
+		<!-- leaflet -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<h1><center>Tourist Spots Labiba's Visited</h1></center>
+		</div>
+
+		<div class="sidebar">
+			<h2>My family doesn't really travel that often because 
+				our schedules often conflict with one another, 
+				but when we do go places it's always fun! 
+				Here are some of the places we've been to:</h2>
+		</div>
+
+		<div class="content">
+			<div id="map"></div>
+		</div>
+
+		<script>
+			let data = [
+				{
+					title: "Griffith Observatory",
+					description: "Whenever our relatives come over, we always bring them here, either because it's one of the first tourist locations we've ever been to or because we want others to also suffer the uphill walk to the observatory.",
+					lat: 34.11833055887679,
+					lon: -118.30012118997443,
+					url:
+						"https://www.hikespeak.com/img/la/Griffith/Observatory/West_Observatory_Trail_Griffith_Park_hike_0217.jpg",
+				},
+				{
+					title: "Zainul Abedin Art Museum",
+					description: "He's known for illustrating the Bengal Famine of 1943 and being at the forefront of preserving Bangladeshi culture during its liberation to the rest of the Bangladesh. But, in my family, he's known as the student my grandpa told to pursue art because he was bad at math",
+					lat: 24.7703,
+					lon: 90.3950,
+					url:
+						"https://www.documenta14.de/images/d14_Zainul_Abedin_Famine_Sektches_Installation_View_%C2%A9_Milan_Soremski-004.jpg,1440",
+				},
+				{
+					title: "Grand Canyon Skywalk",
+					description: "I'm afraid of heights so I couldn't really enjoy the view through my tears. But once I was safely off the Skywalk, I loved the view. It's incredible that there's rocks that we can see that are older than the oldest known dinosaurs.",
+					lat: 36.0119,
+					lon: -113.8108,
+					url:
+						"https://www.maverickhelicopter.com/images/tours/tour-skywalk-odyssey/skywalk-odyssey-tour-lg4.jpg",
+				},
+				{
+					title: "Zion National Park",
+					description: "When we first crossed the border into Utah, you could just tell it was a different state because we were greeted by pastel colored mountains which I had never seen before.",
+					lat: 37.2982,
+					lon: -113.0263,
+					url:
+						"https://wallpapercave.com/wp/wp2213487.jpg",
+				},
+				{
+					title: "Sequoia National Park",
+					description:
+						"This was the first national park I went to with my family. I'm just really fasinated by nature and it was insane seeing just how tall the General Sherman Tree was in person.",
+					lat: 45.5762,
+					lon: -122.1158,
+					url:
+						"https://i.redd.it/isuxb4axwb821.jpg",
+				},
+			];
+
+			var map = L.map("map").setView([ 39.0, 50],2.4);
+
+			L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+				attribution:
+					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			}).addTo(map);
+			data.forEach(function (item) {
+				let popup = L.popup().setContent(
+					"<center><h3>" +
+						item.title +
+						"</h3>" +
+						"<h4>" +
+						item.description +
+						"</h4>" +
+						"<img src ='" +
+						item.url +
+						"'width=60%'/></center>"
+				);
+				L.marker([item.lat, item.lon]).addTo(map).bindPopup(popup).openPopup();
+			});
+
+			let ul = document.getElementById("nav");
+			if (!ul) console.log("err");
+			data.forEach(renderList);
+
+			function renderList(elem, ind, arr) {
+				let li = document.createElement("li");
+				li.setAttribute("class", "item");
+
+				let heading = document.createElement("h3");
+				let desc = document.createElement("p");
+				desc.setAttribute("class" , "desc");
+				heading.innerHTML = elem.title;
+				desc.innerHTML = elem.description;
+				li.appendChild(heading);
+				li.appendChild(desc);
+
+				ul.appendChild(li);
+			}
+		</script>
+	</body>
+</html>
