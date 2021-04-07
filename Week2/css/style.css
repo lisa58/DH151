@@ -20,7 +20,7 @@ body {
 .header {
 	grid-area: header;
 	padding: 0px;
-    background-color: rgb(31, 17, 112);
+    background-color: rgb(35, 20, 121);
 	color:rgb(255, 255, 255)
 }
 .sidebar {
