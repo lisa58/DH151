@@ -5,7 +5,7 @@ let locations = [
         'lon': -122.1158,
         'url':
         "https://i.redd.it/isuxb4axwb821.jpg",
-        paragraph:
+        'paragraph':
             "This was the first national park I went to with my family. I'm just really fasinated by nature and it was insane seeing just how tall the General Sherman Tree was in person.",
    
     },
@@ -58,9 +58,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.easyButton('fa-globe', function(btn,map){
-	map.fitBounds(myMarkers.getBounds());
-}, 'default view').addTo(map);
 
 let myMarkers = L.featureGroup();
 
@@ -77,29 +74,35 @@ locations.forEach(function(item,index){
 		myMarkers.addLayer(marker)
 		
 		$('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${index});ShowAndHide(${index})">${item.title}</div>`)
-		$('.sidebar').append(`<div id = "${index}" style="display: show">${item.paragraph}>${item.title}</div>`)
-});
+		$('.sidebar').append(`<div id = "${index}" style="display: none">${item.paragraph}</div>`)
+        $('.sidebar-item').click(function() {
+            $('.sidebar-item').removeClass('unselected')
+            $(this).addClass('selected')
+        })
+
+        
+    });
 
 myMarkers.addTo(map)
 
 let layers = {
 	"My Markers":myMarkers
 }
-
 L.control.layers(null,layers).addTo(map)
-
 map.fitBounds(myMarkers.getBounds())
+
+
+
+
 
 function flyToIndex(index){
 	var x = document.getElementById(index);
 	if (x.style.display == 'none'){
 		map.flyTo([locations[index].lat,locations[index].lon],15)
 		myMarkers.getLayers()[index].openPopup(
-
         )	
 	}
 }
-
 function ShowAndHide(index) {
     var x = document.getElementById(index);
     if (x.style.display == 'none') {
@@ -108,3 +111,4 @@ function ShowAndHide(index) {
         x.style.display = 'none';
     }
 }
+
