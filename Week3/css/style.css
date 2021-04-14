@@ -1,0 +1,75 @@
+body,html {
+	margin:0;
+	height:100%;
+	width:100%;
+}
+
+#map {
+	height: 100%;
+}
+
+body {
+    display: grid;
+	grid-template-rows: 80px 1fr;
+	grid-template-columns: 320px 1fr;
+	grid-template-areas: 
+	"header header"
+	"sidebar content";
+}
+
+.header {
+	grid-area: header;
+	padding:25px;
+    background-color: #80b4df;
+	color:rgb(12, 33, 46);
+	text-align: center;
+	font-family: Fantasy;
+	font-size: 30px;
+}
+.sidebar {
+	grid-area: sidebar;
+	padding: 30px;
+    background-color: #6381a3;
+	color:rgb(255, 255, 255);
+	overflow: auto;
+}
+.content {
+	grid-area:auto;
+}
+
+.sidebar-item {
+	padding: 10px;
+	background: rgb(64, 46, 128);
+	color:rgb(64, 46, 128);
+	border: 2px solid rgb(64, 46, 128);
+	margin: 20px;
+	cursor:pointer; 
+	text-align: center;
+	font-family:fantasy;
+}
+
+.sidebar-item:hover {
+	background: rgb(113, 178, 204);
+	color:rgb(48, 28, 136);
+	border: 2px solid rgb(48, 28, 136);
+	text-align: center;
+	
+	font-size: 20px;
+}
+	li.list-group-item a:hover {
+	background-color: transparent;
+  }
+  
+  li.list-group-item.active a {
+	color: #fff;
+  }
+  
+  li.list-group-item.active a:hover {
+	background-color: transparent;
+  }
+  
+  .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+	background-color: #a8a8a8;
+  }
+	
+
