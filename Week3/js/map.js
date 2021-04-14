@@ -77,7 +77,7 @@ locations.forEach(function(item,index){
 		myMarkers.addLayer(marker)
 		
 		$('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${index});ShowAndHide(${index})">${item.title}</div>`)
-		$('.sidebar').append(`<div id = "${index}" style="display: none">${item.paragraph}<\div>`)
+		$('.sidebar').append(`<div id = "${index}" style="display: show">${item.paragraph}>${item.title}</div>`)
 });
 
 myMarkers.addTo(map)
