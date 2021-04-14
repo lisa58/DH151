@@ -95,8 +95,7 @@
                 item.url +
                 "'width=60%'/></center>"
             );
-            let heading = document.createElement("h3");
-            let desc = document.createElement("p");
+    
 
             L.marker([item.lat, item.lon]).addTo(map).bindPopup(popup).openPopup();
         });
