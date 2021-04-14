@@ -3,4 +3,4 @@
 
 [Week 2: Map Room](Week2/index.html)
 
-[Week 3: Updated Map Room](Week3/index.html)
+[Week 3: New Map Room](Week3/index.html)
