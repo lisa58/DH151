@@ -37,13 +37,20 @@ function readCSV(path){
 }
 
 function mapCSV(data){
-
+	
+	let circleOptions = {
+        radius: 8,
+        weight: 2,
+        color: 'black',
+        fillColor: 'gray',
+        fillOpacity: .75
+    }
 
 
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create a marker
-		let marker = L.circleMarker([item.latitude,item.longitude])
+		let marker = L.circleMarker([item.latitude,item.longitude,],circleOptions)
 		.on('mouseover',function(){
 			this.bindPopup(`${item.title}<br><img src="${item.thumbnail_url}" width="200pt">`).openPopup()
 		})
