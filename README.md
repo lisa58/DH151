@@ -6,4 +6,3 @@
 [Week 3: New Map Room](Week3/index.html)
 
 [Week 4: CSV Map Room](Week4/index.html)
-
